@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>10x10-Feld</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Dropdown zur Auswahl des Spielmodus -->
+    <div class="control-container">
+        <label for="game-mode">Spielmodus:</label>
+        <select id="game-mode">
+            <option value="classic">Klassisch</option>
+            <option value="advanced">Erweitert</option>
+            <option value="blue-highlight">Blaues Feld finden</option>
+        </select>
+        <button id="toggle-button">Zahlen ausblenden</button>
+    </div>
+
+    <div class="grid-container">
+        <!-- Felder werden durch JavaScript generiert -->
+    </div>
+
+    <div class="info-container">
+        <p id="target-number">Finde die Zahl: </p>
+        <p id="directions"></p>
+        <p id="score">Richtig: 0 | Falsch: 0</p>
+    </div>
+
+    <!-- Bereich für Antwortmöglichkeiten im blauen Modus -->
+    <div class="answer-options" id="answer-options"></div>
+
+    <script src="script.js"></script>
+</body>
+</html>

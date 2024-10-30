@@ -51,7 +51,6 @@ button {
     border-bottom: 4px solid black;
 }
 
-
 /* Flash-Effekt für richtig und falsch */
 .grid-item.correct {
     background-color: lightgreen;
@@ -61,11 +60,44 @@ button {
     background-color: lightcoral;
 }
 
+/* Hervorhebung für das blaue Ziel-Feld */
+.grid-item.highlight {
+    background-color: lightblue;
+}
+
 /* Info-Bereich Styling */
 .info-container {
     text-align: center;
     margin-top: 20px;
     font-size: 18px;
+}
+
+/* Hervorhebung für das blaue Ziel-Feld */
+.grid-item.highlight {
+    background-color: lightblue;
+}
+
+/* Antwort-Optionen Styling für den blauen Modus */
+.answer-options {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.answer-options .answer-button {
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.answer-button.correct {
+    background-color: lightgreen;
+}
+
+.answer-button.wrong {
+    background-color: lightcoral;
 }
 
 /* Responsive Anpassungen für Smartphones */

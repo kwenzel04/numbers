@@ -13,6 +13,33 @@ let numbersVisible = true; // Anfangszustand der Sichtbarkeit der Zahlen
 let directions = [];
 let gameMode = 'classic';
 
+// Spielmodus wechseln
+gameModeSelect.addEventListener('change', (event) => {
+    gameMode = event.target.value;
+    resetGridHighlights(); 
+    startGameMode();
+});
+
+// Startet das Spiel im ausgewählten Modus und zeigt nur die benötigten Elemente an
+function startGameMode() {
+    if (gameMode === 'classic') {
+        setRandomTargetNumber();
+        directionsElement.style.display = 'none'; // Pfeilrichtungen verbergen
+        answerOptionsContainer.style.display = 'none'; // Antwortoptionen verbergen
+        targetNumberElement.style.display = 'block'; // Ziel-Feld anzeigen
+    } else if (gameMode === 'advanced') {
+        setAdvancedTargetNumber();
+        directionsElement.style.display = 'block'; // Pfeilrichtungen anzeigen
+        answerOptionsContainer.style.display = 'none'; // Antwortoptionen verbergen
+        targetNumberElement.style.display = 'block'; // Ziel-Feld anzeigen
+    } else if (gameMode === 'blue-highlight') {
+        startBlueMode();
+        directionsElement.style.display = 'none'; // Pfeilrichtungen verbergen
+        answerOptionsContainer.style.display = 'flex'; // Antwortoptionen anzeigen
+        targetNumberElement.style.display = 'none'; // Ziel-Feld verbergen
+    }
+}
+
 // Erstellt das 10x10-Gitter und speichert die Zahl im data-number Attribut
 for (let i = 1; i <= 100; i++) {
     const cell = document.createElement('div');
@@ -20,7 +47,7 @@ for (let i = 1; i <= 100; i++) {
     cell.textContent = i; // Zeigt die Zahl im Grid an
     cell.setAttribute('data-number', i); // Speichert die Zahl im data-number-Attribut
 
-    // Klick-Event für jede Zelle
+
     cell.addEventListener('click', () => {
         const cellNumber = parseInt(cell.getAttribute('data-number'));
         if (gameMode === 'classic') {
@@ -28,6 +55,9 @@ for (let i = 1; i <= 100; i++) {
         } else if (gameMode === 'advanced') {
             checkAdvancedMode(cellNumber, cell);
         }
+         else if (gameMode === 'blue-highlight') {
+       // startBlueMode(); // Startet den blauen Modus
+         }
         updateScore();
     });
 
